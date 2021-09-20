@@ -1,0 +1,13 @@
+body {
+    background: orange;
+}
+
+
+.btn {
+    background-color: yellow;
+    color: balck;
+    margin: 10px;
+    padding: 5px;
+    border-radius: 9px;
+    border: 2px black solid;
+}

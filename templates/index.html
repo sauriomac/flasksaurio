@@ -1,0 +1,33 @@
+{% extends 'layout.html' %}
+
+{% block title %}
+index
+
+{{super() }}
+{% endblock %}
+
+{% block content %}
+
+<h1>inicio desde layout</h1>
+{% with messages = get_flashed_messages() %}
+{% if messages %}
+{% for message in messages%}
+<div>
+    <h3>{{message}}</h3>
+</div>
+<hr>
+{% endfor %}
+{% endif %}
+{% endwith %}
+{% include 'includes/edad.html'%}
+
+{{dato1}} {{lista}}
+{#comentario#}
+{{texto|safe}}
+
+<h3>listado de personas</h3>
+{% for persona in personas%}
+<li>{{loop.index}} - {{persona}}</li>
+{% endfor %}
+
+{% endblock %}

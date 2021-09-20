@@ -1,0 +1,51 @@
+{% extends 'layout.html' %}
+
+{% block title %}
+coches
+
+{{super() }}
+{% endblock %}
+
+{% block content %}
+<h1>coches</h1>
+
+{% with messages = get_flashed_messages() %}
+{% if messages %}
+{% for message in messages%}
+<div>
+    <h3>{{message}}</h3>
+</div>
+<hr>
+{% endfor %}
+{% endif %}
+{% endwith %}
+
+
+
+
+{% for coche in coches%}
+
+<div>
+    <h2>
+        <a href="{{ url_for('coche', coche_id=coche.0) }}">
+            {{coche.1}}</a>
+    </h2>
+    <p>
+        {{coche.2}}
+    </p>
+    <p>
+        {{coche.3}}
+    </p>
+
+    <p>
+        {{coche.4}}
+    </p>
+    <p>
+        <a href="{{ url_for('editar_coche', coche_id=coche.0)}}" class="btn">EDITAR</a>
+        <a href="{{ url_for('borrar_coche', coche_id=coche.0)}}" class="btn">ELIMINAR</a>
+    </p>
+</div>
+{% endfor %}
+
+
+{% endblock %}
